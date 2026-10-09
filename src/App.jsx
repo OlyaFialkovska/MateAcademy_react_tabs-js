@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
@@ -12,12 +12,13 @@ export const tabs = [
 ];
 
 export const App = () => {
-  const [activeTabId, setActiveTabId] = useState(tabs[0].id);
+  const [activeTabId, setActiveTabId] = useState('');
 
   return (
     <div className="section">
       <h1 className="title">
-        Selected tab is {tabs.find(tab => tab.id === activeTabId).title}
+        Selected tab is{' '}
+        {tabs.find(tab => tab.id === activeTabId)?.title || tabs[0].title}
       </h1>
 
       <Tabs
